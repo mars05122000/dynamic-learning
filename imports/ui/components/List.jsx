@@ -19,7 +19,7 @@ const SortableItem = SortableElement(({
   >
     <div
       className="ui button lessonplanleftbutton slidenumber"
-      style={{ width: '100%', textAlign: 'left', backgroundColor: index === props.curSlide ? 'lightGreen' : '#e0e1e2' }}
+      style={{ width: '100%', textAlign: 'left', backgroundColor: index === props.curSlide ? 'red' : '#e0e1e2' }}
       onClick={() => { props.changeSlide(slideNo); }}
     >
       {props.isPreview ? slide.title : slideNo + 1}

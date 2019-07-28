@@ -169,12 +169,26 @@ export class CreateWorkbook extends React.Component {
             This function handles the shortcut key functionalities.
          */
 
+    console.log(e.keyCode);
+
     if (e.keyCode >= 37 && e.keyCode <= 40) {
       e.preventDefault();
     }
 
-    if (e.keyCode === 67 && e.ctrlKey) {
-      this.copiedObject = this.db.copy();
+    if (e.keyCode === 67) {
+      this.content_copy = this.state.slides[this.state.curSlide];
+    }
+
+    if (e.keyCode == 80) {
+      const slides = [...this.state.slides.slice(0,this.state.curSlide+1), this.content_copy, ...this.state.slides.slice(this.state.curSlide+1,this.state.slides.length)];
+     // slides.push(this.content_copy);
+      console.log(slides);
+      this.setState({
+        slides,
+        curSlide: this.state.curSlide +1
+      },()=>{
+        console.log(this.state.slides.length);
+      })
     }
 
     if (e.keyCode === 86 && e.ctrlKey) {
@@ -205,6 +219,9 @@ export class CreateWorkbook extends React.Component {
       this.interact();
     }
   };
+
+
+
 
   saveAfterReset = () => {
     const { slides, curSlide } = this.state;

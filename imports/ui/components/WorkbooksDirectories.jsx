@@ -240,6 +240,7 @@ class WorkbooksDirectories extends Component {
 
     return (
       <div>
+        hello
         <Dimmer inverted active={!workbooksExists}>
           <Loader />
         </Dimmer>
